@@ -1,0 +1,31 @@
+server:
+  port: 8082
+spring:
+  # 开启 multipart 上传功能
+  servlet.multipart.enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/todo?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1611973590
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+# 配置mybatis规则
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml  #sql映射文件位置
+  #全局配置
+  global-config:
+    db-config:
+      #主键id自增
+      id-type: auto
+      field-strategy: NOT_EMPTY
+      db-type: MYSQL
+
+  configuration:
+    #驼峰表示映射成下划线
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
